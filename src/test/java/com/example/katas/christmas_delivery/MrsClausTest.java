@@ -36,8 +36,9 @@ class MrsClausTest {
 
         ArgumentCaptor<Present> presentArgumentCaptor = ArgumentCaptor.forClass(Present.class);
         verify(elf, times(presents.size())).givesPresent(presentArgumentCaptor.capture());
-        var present = presentArgumentCaptor.getAllValues();
-        System.out.println(present);
+        var capturedPresents = presentArgumentCaptor.getAllValues();
+        assertThat(capturedPresents).hasSize(10);
+        assertThat(capturedPresents.stream().map(Present::name).filter(name -> name.equals("toy1")).findAny()).isPresent();
     }
 
     private List<Present> createPresents(int presentsNumber) {
