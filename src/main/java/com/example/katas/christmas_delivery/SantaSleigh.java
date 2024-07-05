@@ -10,4 +10,7 @@ public class SantaSleigh {
         presents.add(present);
     }
 
+    public static List<Present> presents() {
+        return presents;
+    }
 }
