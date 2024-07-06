@@ -1,0 +1,3 @@
+Simpson, toy1, toy2, toy8, true
+Jackson, toy7, toy3, false
+Uchiwa, toy5, toy6, toy4, toy9, true

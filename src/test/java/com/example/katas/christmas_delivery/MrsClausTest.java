@@ -1,9 +1,7 @@
 package com.example.katas.christmas_delivery;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
-import org.mockito.Mockito;
 
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
@@ -19,8 +17,9 @@ class MrsClausTest {
     void shouldGiveAllPresents() throws InterruptedException {
         var elfFactory = mock(ElfFactory.class);
         var elf = mock(Elf.class);
+        var familyRepository = mock(FamilyInMemoryRepository.class);
         when(elfFactory.createElf()).thenReturn(elf);
-        var mrsClaus = new MrsClaus(elfFactory);
+        var mrsClaus = new MrsClaus(elfFactory, familyRepository);
         var presents = createPresents(10);
 
         CountDownLatch countDownLatch = new CountDownLatch(presents.size());
