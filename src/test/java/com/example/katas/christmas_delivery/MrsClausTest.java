@@ -19,7 +19,7 @@ class MrsClausTest {
         var elf = mock(Elf.class);
         var familyRepository = mock(FamilyInMemoryRepository.class);
         when(elfFactory.createElf()).thenReturn(elf);
-        var mrsClaus = new MrsClaus(elfFactory, familyRepository);
+        var mrsClaus = new MrsClaus(elfFactory, familyRepository, 10);
         var presents = createPresents(10);
 
         CountDownLatch countDownLatch = new CountDownLatch(presents.size());
